@@ -68,5 +68,31 @@
     System.import('./index.js').catch(function(err) { console.error(err); })
 </script>
 
+<script id="cache-warm">
+// Sinh tu dong boi .claude/scripts/warm_cache.py sau moi lan build — dung sua tay.
+// Tai truoc asset khi tab mo o nen, vi luc do engine Cocos dang tu dung vong lap
+// (visibilitychange -> pauseByEngine) nen khong tai gi ca. Chi tiet trong script noi tren.
+(function () {
+  if (document.visibilityState !== 'hidden') return;
+  var urls = ["assets/internal/import/0e/0e107f583.json","assets/main/index.js","assets/main/native/a8/a86ccba9-4a5c-4b35-9028-a08a5fec5866.png","assets/main/native/e3/e356e0cc-c787-426e-9203-ff3ba0ef9403.png","assets/main/native/14/146a4726-d3b4-4918-b88b-07b282442bde.png","assets/main/native/6e/6eddf62c-d82b-468e-a77a-b6c5849d72d3.png","assets/main/import/0a/0af6f0cf0.json","assets/main/native/e6/e634037b-b522-4d4c-a0bf-439d184f72f8.png","assets/main/native/9d/9d17c883-a904-4471-b935-67b82688636e.png","assets/main/native/f0/f052641b-c6a4-4238-9df8-c9a2cce3b9ea.png","assets/main/native/74/74ba3e4e-9661-4cc5-96b4-35701cd096cb.png","assets/main/native/21/21e01fae-142a-4f62-95ff-a1df0a850e39.png","assets/main/native/f4/f46000e5-7820-495c-8126-d13857381643.png","assets/main/native/9a/9ae37e8a-2fee-4f11-a0ce-4ba03c4def03.png","assets/main/native/d7/d7aa2420-fbc8-4133-80b9-f616e975547a.png","assets/main/native/ab/ab27b566-170b-4000-bb93-695aa82d20de.png","assets/internal/index.js","assets/main/native/fa/fa00ce31-04e6-4e5d-84b5-dc783b2334ce.png","assets/main/native/0d/0d12e706-75d3-4998-b0ee-8b07e9b23f98.png","assets/main/native/38/380a7404-b415-4595-9431-3041672cdcf5.png","assets/main/native/e2/e2de8440-c092-4f75-99c2-6a78a6679086.png","assets/main/native/ab/ab16d65e-f45f-4f58-a827-b13162bbd7ae.jpg","assets/main/native/f5/f55ec6d0-4020-402c-b678-b353855f696d.jpg","assets/main/native/28/28e499b1-4504-483f-a0ca-03e160206a0f.jpg","assets/main/native/b3/b3dd82d7-13f3-428d-b831-7fd6e18ece76.png","assets/main/native/72/729a2984-2df1-4940-a007-f28629e93f50.png","assets/main/native/b8/b8120024-5a99-4f47-85e3-bec2be95d612.png","assets/main/native/30/30c0a190-d208-430c-91dd-4b7c9ca13404.png","assets/main/native/7a/7a38b6d8-d2c9-4727-8bf5-861aa31a84f1.png","assets/main/native/30/308de5ba-b3da-40b1-8652-d7151721633c.png","assets/main/native/e7/e7cfefac-ed6c-4170-ab06-672a8f1bf554.png","assets/main/native/21/21e548dd-c265-43c6-ad23-2b764d1d173b.png","assets/main/native/b7/b71e5595-77a2-4389-968f-b11c63def267.png","assets/main/native/b3/b30aeaba-26ba-498c-9e16-d06a8ddd62a8.png","assets/main/native/0b/0b289dfb-5c60-4669-9ac0-c3ddd71c33be.png","assets/main/native/cf/cf9a2fb6-1f3a-437c-a434-1a6e7a581a3a.png","assets/main/native/fa/fa03d370-d092-4159-a199-4dd72df95fe0.png","assets/main/native/20/20ea53db-ed83-4294-88cd-f0b78d9798ad.png","assets/main/native/42/424a6ee7-996a-4d19-a150-05da44e236e5.png","assets/main/native/0c/0cb01f77-d184-487f-9d4a-bf5fcdc62bf8.png","assets/main/native/c1/c10b6da3-0228-4ab1-87ff-e20822732a19.png","assets/main/native/c5/c5742f64-317c-49d2-a97d-5edadc19ef25.png","assets/main/native/55/554ca06d-be71-4440-8f04-bf7a1fa36ed0.png","assets/main/config.json","assets/main/native/74/743b50f4-d2e4-4c83-8bf6-460a5fa8770a.png","assets/main/native/c9/c9c4a4b1-9fb9-4626-b1df-dca9919c2ca4.png","assets/main/native/48/48f2c57d-b57f-4ae3-8459-dd99aabcf441.png","assets/main/native/fc/fcc31236-f2fc-4890-9ac0-bd179a0a0491.png","assets/main/native/cb/cb93b086-7e55-48fb-ba02-892bbcfa8727.png","assets/main/native/17/1765930b-45a1-450f-9029-bbbd4629b5fd.png","assets/main/native/0a/0a08979a-7aec-416e-907e-687f47bbdee2.png","assets/main/native/d5/d52aa6fa-7d13-439d-8c2e-b8883a732c92.png","assets/main/native/0c/0c36d2a9-0c12-436d-8af4-db9eaa872e6c.png","assets/main/native/6a/6a10a353-6e04-4159-8c14-e42becb73282.png","assets/main/native/fc/fc2b92b7-9033-4930-99bb-b48e552f4bb8.png","assets/main/native/d0/d09916df-5d4b-41dd-80a5-264d2298b70f.png","assets/main/native/7b/7b80bc7e-e2dd-4962-a186-c10be108a1c0.png","assets/main/native/3d/3d353ce0-ab5d-4c51-bada-58b9e739a452.png","assets/main/native/88/88f4bb99-60f8-48fe-bed3-ec7c814b3dda.png","assets/main/native/ad/ad5564b8-14db-416a-9e75-55002e5991bb.png","assets/main/native/7b/7b3a783a-23f9-473b-b027-900aa9a27fa4.png","assets/main/native/a2/a2b3641f-70cb-4264-84ad-e4e8ce6a2db9.png","assets/main/native/17/176be725-bb27-4035-83cd-636be51ec928.png","assets/main/native/38/380f0ac9-b0e9-4495-a7a2-3cf3faa422ed.png","assets/main/native/da/da0108c0-d7d0-4183-a505-715c91858999.png","assets/internal/config.json","assets/main/native/76/765fb5b0-520f-4b6f-a9c9-f71b17ae7f96.png","assets/main/native/26/267f6cb4-bb83-4218-a58b-a07514008375.png"];
+  var next = 0, running = true;
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) running = false;   // engine tinh day roi, de no tu lo
+  });
+  function pump() {
+    if (!running || next >= urls.length) return;
+    fetch(urls[next++], { credentials: 'same-origin', priority: 'low' })
+      .then(function (r) { return r.arrayBuffer(); })   // doc het thi moi vao cache
+      .catch(function () {})
+      .then(pump);
+  }
+  // Doi 'load'. Dat the script truoc </body> KHONG co nghia la chay sau engine: cac the
+  // script cua Cocos deu la module/async, luc nay chung con dang tai. Khong doi thi bon
+  // luot fetch nay gianh duong truyen voi chinh cc.js — thu engine can truoc tien.
+  function start() { for (var i = 0; i < 4; i++) pump(); }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
+})();
+</script>
 </body>
 </html>
