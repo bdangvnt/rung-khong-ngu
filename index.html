@@ -1,24 +1,6 @@
 <!DOCTYPE html>
-<!--
-  Bản sao template web-mobile gốc của Cocos 3.8.8, sửa đúng phần <head>.
-
-  VÌ SAO PHẢI CHÉP CẢ FILE: Cocos không cho ghi đè lẻ một dòng — `build-templates/<platform>/`
-  thay THẲNG file cùng tên trong template gốc. Nên nâng cấp Cocos lên bản mới thì phải so
-  lại file này với bản gốc ở:
-      <Cocos>/Contents/Resources/resources/3d/engine/templates/web-mobile/index.ejs
-
-  BA CHỖ ĐÃ SỬA, phần còn lại giữ nguyên từng ký tự:
-  1. <title> — bỏ "Cocos Creator | first-demo". Đó là tên THƯ MỤC PROJECT, không phải tên
-     game; ai mở link cũng thấy nó ở tab và ở màn hình chia sẻ.
-  2. Thêm <meta name="description"> + thẻ og: — dán link vào Zalo/Messenger thì hiện tên và
-     một câu giới thiệu, thay vì một dòng URL trơ.
-  3. <html lang="vi">.
-
-  TÊN GAME Ở ĐÂY LÀ TÊN BẢN TOÀN CẦU, vì đó là vùng mặc định khi mở lần đầu
-  (`Region.DEFAULT_REGION`). Đổi sang vùng khác thì `RegionPalette.applyTitle` sửa lại
-  `document.title` lúc chạy — nhưng thẻ tĩnh này mới là thứ trình thu thập link đọc được,
-  nên nó phải khớp với vùng mặc định.
--->
+<!-- Bản chép template web-mobile của Cocos 3.8.8, chỉ sửa <head>. Nâng Cocos thì so lại
+     với bản gốc. Chi tiết: docs/09-deploy.md mục 1b. -->
 <html lang="vi">
 <head>
   <meta charset="utf-8">
